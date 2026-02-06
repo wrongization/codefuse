@@ -1,0 +1,169 @@
+.markdown-body .katex-display {
+  margin: 16px 0;
+}
+
+.markdown-body .katex-display > .katex {
+  display: inline-block;
+}
+
+.markdown-body .katex {
+  font-size: 1em;
+}
+:root {
+  --accent: #409eff;
+  --muted: #6b7280;
+  --bg: #f5f7fb;
+  --card-bg: #ffffff;
+  --radius: 10px;
+  --soft-shadow: 0 6px 18px rgba(16,24,40,0.06);
+  --soft-shadow-2: 0 8px 30px rgba(16,24,40,0.08);
+  --transition-fast: 150ms;
+  --transition-medium: 300ms;
+}
+
+/* 页面背景与全局字体 */
+html, body, #app {
+  height: 100%;
+  background: linear-gradient(180deg, rgba(64,158,255,0.03) 0%, rgba(245,247,251,1) 100%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 统一圆角与卡片样式 */
+.el-card, .card, .panel {
+  border-radius: var(--radius) !important;
+  background: var(--card-bg) !important;
+  box-shadow: var(--soft-shadow);
+  transition: box-shadow var(--transition-medium), transform var(--transition-medium);
+}
+.el-card:hover {
+  box-shadow: var(--soft-shadow-2);
+  transform: translateY(-4px);
+}
+
+/* 全局按钮圆角与动画 */
+.el-button {
+  border-radius: 8px;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+}
+.el-button:active {
+  transform: translateY(1px) scale(0.998);
+}
+
+/* 表格与输入控件的柔和边角 */
+.el-input__inner, .el-select .el-input__inner, .el-textarea__inner {
+  border-radius: 8px;
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+.el-input__inner:focus, .el-select .el-input__inner:focus {
+  box-shadow: 0 4px 14px rgba(64,158,255,0.12);
+}
+
+/* 表格行 hover 效果 */
+.el-table .el-table__row:hover {
+  background: rgba(64,158,255,0.03);
+}
+
+/* 通用小组件 */
+.rounded { border-radius: var(--radius) !important; }
+.soft-shadow { box-shadow: var(--soft-shadow) !important; }
+.muted { color: var(--muted); }
+
+/* 轻量动画 */
+.fade-in { animation: fadeIn var(--transition-medium) ease both; }
+.fade-in-up { animation: fadeInUp var(--transition-medium) cubic-bezier(.2,.9,.2,1) both; }
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px) }
+  to { opacity: 1; transform: translateY(0) }
+}
+
+/* 小徽章和头像微交互 */
+.user-avatar { transition: transform var(--transition-fast), box-shadow var(--transition-fast); border-radius: 8px }
+.user-avatar:hover { transform: translateY(-2px); box-shadow: var(--soft-shadow-2) }
+
+/* 侧边导航 / header 美化 */
+.header { background: linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8)); }
+.logo h1 { letter-spacing: 1px; font-weight: 700 }
+
+/* 小屏幕友好 */
+@media (max-width: 768px) {
+  .nav-menu { display: none }
+  .logo h1 { font-size: 20px }
+}
+
+/* 特殊：高亮讨论定位样式（覆盖 ProblemDetail 的内联样式备用） */
+.discussion-highlight {
+  transition: background-color 0.5s;
+  background-color: #fff7e6;
+}
+
+/* Markdown 渲染通用样式 */
+.markdown-body {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #303133;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin: 18px 0 12px;
+  font-weight: 600;
+}
+
+.markdown-body p {
+  margin: 12px 0;
+}
+
+.markdown-body code {
+  padding: 2px 4px;
+  background: rgba(27,31,35,0.06);
+  border-radius: 4px;
+  font-family: 'Fira Code', 'Courier New', monospace;
+}
+
+.markdown-body pre {
+  padding: 12px;
+  background: #f6f8fa;
+  border-radius: 8px;
+  overflow: auto;
+}
+
+.markdown-body pre code {
+  background: transparent;
+  padding: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  margin: 12px 0 12px 24px;
+}
+
+.markdown-body blockquote {
+  margin: 12px 0;
+  padding: 10px 14px;
+  border-left: 4px solid #dcdfe6;
+  background: rgba(64,158,255,0.06);
+  color: #606266;
+}
+
+.markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+}
+
+.markdown-body th,
+.markdown-body td {
+  border: 1px solid #ebeef5;
+  padding: 8px 10px;
+  text-align: left;
+}
